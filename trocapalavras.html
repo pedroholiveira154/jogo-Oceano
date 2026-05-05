@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca Palavras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="particles-container"></div>
+    <div id="bubbles-container"></div>
+    <div id="fish-container"></div>
+
+    <!-- ═══ NAVBAR ═══════════════════════════════════════════════
+      navbar-expand-md  → colapsa em mobile, expande em ≥768px
+      navbar-dark       → força ícones/texto claros (fundo escuro)
+      position-fixed + top-0 + w-100 → fixa no topo da viewport
+    ════════════════════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-md navbar-dark position-fixed top-0 w-100" id="navbar" style="background: rgba(3,4,94,0.85) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(144,224,239,0.2);">
+        <div class="container">
+            <a class="navbar-brand nav-logo" href="index.html">OCEANO</a>
+            <!-- hambúrguer automático do Bootstrap em mobile -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+            <ul class="navbar-nav gap-3">
+                <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">← Voltar para Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section
+        class="min-vh-100 d-flex flex-column align-items-center justify-content-center text-center py-5 position-relative pagina-jogo"
+        style="z-index:1;">
+        <div class="container">
+
+            <p class="section-label">// Troca Palavras</p>
+            <h1 id="titulo-jogo">Bem-vindo ao Troca Palavras dos Oceanos!</h1>
+            <p class="hero-sub mx-auto">Digite uma palavra substituta e veja a frase mudar!</p>
+
+            <!-- frases em cards -->
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+                <div class="col">
+                    <div class="card h-100 card-trocar">
+                        <p>O <span class="trocar">Polvo</span> tem três corações e oito tentáculos.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 card-trocar">
+                        <p>A Tartaruga <span class="trocar">Marinha</span> consegue viver até 100 anos!</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 card-trocar">
+                        <p>O Tubarão <span class="trocar">Martelo</span> é conhecido por sua cara achatada.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 card-trocar">
+                        <p>A Baleia <span class="trocar">Cachalote</span> é extremamente amigável com os humanos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- input e botão -->
+            <input type="text" class="input-substituicao" id="substituicao" placeholder="Digite uma palavra">
+            <button class="btn-jogar" onclick="trocarPalavra()">Trocar a palavra</button>
+
+        </div>
+    </section>
+
+
+    <audio id="som-bolhas" loop>
+        <!-- <source src="audio/soundshmyak-loop-air-bubbles-159283.mp3" type="audio/mpeg"> -->
+        <source
+            src="audio/malvarrosadesigns-muffled-and-relaxing-sound-of-bubbles-rising-slowly-in-water-loop-492207.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        // ════════════════════════════════════════════════════════════
+        //  ESSE SCRIPT TEM COMO OBJETIVO SOMENTE MUDANÇAS ESTÉTICAS
+        // ════════════════════════════════════════════════════════════
+        titulo.style.fontSize = 'clamp(1rem, 3vw, 2.8rem)'
+
+        const fraseCard = document.querySelectorAll('.card p')
+        fraseCard.forEach((fraseCard) => {
+            fraseCard.style.fontSize = '1.25rem'
+        })
+    </script>
+</body>
+
+</html>

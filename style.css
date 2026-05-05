@@ -1,0 +1,548 @@
+/* FONTE PRA TITULO */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* FONTE PRA TEXTO NORMAL */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* FONTE PRA SUBTITULO */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --surface: #48CAE4;
+    --mid: #0077B6;
+    --deep: #023E8A;
+    --abyss: #03045E;
+    --text-glow: #90E0EF;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--white);
+    background: linear-gradient(to bottom,
+            #48CAE4 0%,
+            #0096C7 18%,
+            #0077B6 35%,
+            #023E8A 60%,
+            #03045E 80%,
+            #000814 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hero-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-glow);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.mb-custom {
+    margin-bottom: 8rem !important; /* Aumente o valor conforme necessário */
+}
+/* ════════════════════════════════════════════
+   NAVBAR
+   O Bootstrap já posiciona e dá z-index alto.
+   Aqui só customizamos aparência.
+════════════════════════════════════════════ */
+#navbar {
+    /* começa transparente — JS adiciona .scrolled ao rolar */
+    background: transparent !important;
+    transition: background 0.5s ease, backdrop-filter 0.5s ease;
+    /* z-index alto para ficar acima das camadas de fundo */
+    z-index: 200;
+}
+
+#navbar.scrolled {
+    background: rgba(3, 4, 94, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(144, 224, 239, 0.2);
+}
+
+.nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: var(--text-glow) !important;
+    text-shadow: 0 0 20px rgba(144, 224, 239, 0.8);
+    text-decoration: none;
+}
+
+.nav-link-custom {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-link-custom:hover {
+    color: var(--text-glow) !important;
+    text-shadow: 0 0 12px rgba(144, 224, 239, 0.8);
+}
+
+/* ════════════════════════════════════════════
+   HERO
+   O Bootstrap cuida do posicionamento (min-vh-100,
+   d-flex, align-items-center, justify-content-center).
+   Aqui só definimos padding e z-index.
+════════════════════════════════════════════ */
+.hero {
+    padding: 2rem 1rem;
+    /* z-index:1 garante que o conteúdo fique
+       acima das camadas de fundo (z-index:0) */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-glow);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+}
+
+/* BOTÃO HERO */
+.btn-mergulhar {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: transparent;
+    border: 2px solid var(--text-glow);
+    color: var(--text-glow);
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+}
+
+.btn-mergulhar:hover {
+    background: var(--text-glow);
+    color: var(--abyss);
+    box-shadow: 0 0 30px rgba(144, 224, 239, 0.5);
+    transform: translateY(-3px);
+}
+
+/* ════════════════════════════════════════════
+    SEÇÂO JOGOS
+════════════════════════════════════════════ */
+.section-label {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-glow);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 4px;
+    text-shadow: 0 0 40px rgba(144, 224, 239, 0.4);
+}
+
+/* ════════════════════════════════════════════
+    CARDS
+    Bootstrap reseta .card — sobrescrevemos com
+    o estilo oceânico. !important onde necessário
+    para vencer a especificidade do Bootstrap.
+════════════════════════════════════════════ */
+.card {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(144, 224, 239, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 2rem 1.5rem !important;
+    backdrop-filter: blur(6px);
+    color: var(--white) !important;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    /* display flex em coluna para empurrar o link pro fundo
+       (funciona junto com h-100 do Bootstrap) */
+    display: flex !important;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 12px 40px rgba(0, 119, 182, 0.3);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    color: var(--text-glow);
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    /* flex-grow empurra o link para o final do card,
+       independente do tamanho do texto */
+    flex-grow: 1;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    color: var(--text-glow);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.3s, opacity 0.3s;
+}
+
+.card-link:hover {
+    letter-spacing: 2px;
+    opacity: 0.8;
+    color: var(--text-glow);
+}
+
+/* ════════════════════════════════════════════
+    FOOTER
+════════════════════════════════════════════ */
+footer {
+    background: rgba(0, 8, 20, 0.8);
+    border-top: 1px solid rgba(144, 224, 239, 0.15);
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.logo-footer {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--text-glow);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    display: block;
+    text-shadow: 0 0 20px rgba(144, 224, 239, 0.4);
+}
+
+/* ════════════════════════════════════════════
+    PÁGINA DE TROCA PALAVRAS
+════════════════════════════════════════════ */
+#titulo-jogo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 40px rgba(144, 224, 239, 0.4);
+    line-height: 1.2;
+}
+
+
+.pagina-jogo {
+    padding-top: 80px;
+}
+
+/* Span Trocar */
+.trocar {
+    color: #90E0EF;
+    border-bottom: 2px solid #90E0EF;
+    cursor: pointer;
+    transition: background 0.2s, padding 0.2s;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.trocar:hover {
+    background: rgba(144, 224, 239, 0.15);
+}
+
+.trocar.selecionado {
+    background: rgba(144, 224, 239, 0.3);
+    box-shadow: 0 0 10px rgba(144, 224, 239, 0.4);
+}
+
+/* Input da palavra substituida */
+.input-substituicao {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(144, 224, 239, 0.4);
+    border-radius: 30px;
+    color: #fff;
+    padding: 0.6rem 1.4rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 320px;
+}
+
+.input-substituicao::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input-substituicao:focus {
+    border-color: rgba(144, 224, 239, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Botao com a funcao de trocar */
+.btn-jogar {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, #0096C7, #023E8A);
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 150, 199, 0.4);
+}
+
+.btn-jogar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 150, 199, 0.6);
+    color: white;
+}
+
+/* ════════════════════════════════════════════
+    ANIMAÇÕES
+════════════════════════════════════════════ */
+
+/* ─── OBJETOS ─── */
+#particles-container,
+#bubbles-container,
+#fish-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animação da bolha */
+.bolha {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    animation: subir linear infinite;
+    bottom: -80px;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-50vh) translateX(15px);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(-10px);
+        opacity: 0;
+    }
+}
+
+/* Animação da particula */
+.particula {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: brilhar ease-in-out infinite;
+}
+
+@keyframes brilhar {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateY(-8px);
+    }
+}
+
+/* Animação do peixe */
+.peixe {
+    position: absolute;
+    animation: nadar linear infinite;
+    opacity: 0.45;
+    filter: drop-shadow(0 0 6px rgba(144, 224, 239, 0.5));
+}
+
+@keyframes nadar {
+    0% {
+        transform: translateX(110vw) scaleX(-1);
+    }
+
+    49% {
+        transform: translateX(-150px) scaleX(-1);
+    }
+
+    50% {
+        transform: translateX(-150px) scaleX(1);
+    }
+
+    100% {
+        transform: translateX(110vw) scaleX(1);
+    }
+}
+
+
+/* Animação do titulo */
+#titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3rem, 9vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 40px rgba(144, 224, 239, 0.4);
+}
+
+#titulo span {
+    display: inline-block;
+    animation: onda 2s ease-in-out infinite;
+}
+
+@keyframes onda {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+/* Animação da setinha pra baixo */
+.scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    animation: pulsar 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(45deg);
+}
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateX(-50%) translateY(8px);
+    }
+}
+
+/* ─── UTILS ─── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVO — ajustes finos sobre o Bootstrap
+════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* em mobile, navbar colapsada fica com fundo escuro
+       para os links ficarem legíveis */
+    #navbar .navbar-collapse {
+        background: rgba(3, 4, 94, 0.95);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: .5rem;
+        backdrop-filter: blur(10px);
+    }
+
+    .jogos-section,
+    .jogar-section {
+        padding: 4rem 1rem;
+    }
+}
